@@ -9,9 +9,17 @@ class App extends Component {
     this.state = {
       noteText: '',
       notes: [],
+      error: ''
     }
     this.onChange = this.onChange.bind(this);
   }
+
+  //react 16 - dont need bind, because onChange is arrow function
+    // state = {
+    //   noteText: '',
+    //   notes: [],
+    //   error: ''
+    // }
 
   updateNoteText(noteText) {
     this.setState({ noteText: noteText.target.value })
@@ -20,6 +28,8 @@ class App extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+  //react16
+  // onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleKeyPress = (event) => {
     if (event.key === 'Enter') {
@@ -28,12 +38,16 @@ class App extends Component {
   }
 
   addNote() {
-    if (this.state.noteText === '') {return}
-
-    let notesArr = this.state.notes;
-    notesArr.push(this.state.noteText);
-    this.setState({ noteText: '' });
-    this.textInput.focus();
+    if (this.state.noteText.trim() === '') {
+      this.setState({ error: 'pusty ciąg - wpisz coś', noteText: ''});
+      return;
+    } else {
+      let notesArr = this.state.notes;
+      notesArr.push(this.state.noteText);
+      this.setState({ noteText: '', error: '' });
+      this.setState({ notes: notesArr });
+      this.textInput.focus();
+    }
   }
 
   deleteNote(index) {
@@ -52,6 +66,7 @@ class App extends Component {
         <div className="header">React todo list</div>
         <button className="btn" onClick={this.addNote.bind(this)}>DODAJ</button>
         <input type="text"
+          placeholder="dodaj zadanie"
           ref={((input) => { this.textInput = input })}
           className="textInput"
           value={this.state.noteText}
@@ -61,6 +76,7 @@ class App extends Component {
           name="noteText"
         />
         {notes}
+        <p>{this.state.error}</p>
       </div>
     );
   }
