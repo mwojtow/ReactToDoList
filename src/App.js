@@ -62,7 +62,7 @@ class App extends Component {
     })
 
     return (
-      <div className="container">
+      <div className="container App">
         <div className="header">React todo list</div>
         <button className="btn" onClick={this.addNote.bind(this)}>DODAJ</button>
         <input type="text"
