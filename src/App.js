@@ -9,12 +9,13 @@ class App extends Component {
     this.state = {
       noteText: '',
       notes: [],
+      date: '',
       error: ''
     }
     this.onChange = this.onChange.bind(this);
   }
 
-  //react 16 - dont need bind, because onChange is arrow function
+  //react 16 - dont need bind, when onChange is arrow function
     // state = {
     //   noteText: '',
     //   notes: [],
@@ -28,7 +29,7 @@ class App extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  //react16
+  //react16 - dont need bind, when onChange is arrow function
   // onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleKeyPress = (event) => {
@@ -54,16 +55,32 @@ class App extends Component {
     let notesArr = this.state.notes;
     notesArr.splice(index, 1);
     this.setState({ notes: notesArr });
+
+    // es6
+    // let { notes } = this.state;
+    // notes.splice(index, 1);
+    // this.setState({ notes });
   }
+  
+  //localStorage saving
+  componentWillMount() { 
+    let localNotes = localStorage.getItem('Notes');
+    const localNotesParsed = JSON.parse(localNotes);
+    console.log(localNotesParsed);
+    this.setState({ notes: localNotesParsed });
+   }
 
   render() {
     let notes = this.state.notes.map((val, key) => {
       return <Note key={key} text={val} deleteMethod={ () => this.deleteNote(key) }/>
-    })
+    });
+    localStorage.setItem("Notes",JSON.stringify(this.state.notes));
 
     return (
       <div className="container App">
-        <div className="header">React todo list</div>
+        <header className="header">
+          <span className="header__buckle">{`{`}</span> React todo list <span className="header__buckle">{`}`}</span>
+        </header>
         <button className="btn" onClick={this.addNote.bind(this)}>DODAJ</button>
         <input type="text"
           placeholder="dodaj zadanie"
