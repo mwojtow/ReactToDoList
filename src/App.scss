@@ -4,7 +4,7 @@ body {
 
 .container {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .header {
@@ -12,10 +12,10 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 60px;
-  color: #A86493;
   font-weight: bold;
-  margin-bottom: 30px;
-  &__buckle{
+  color: #A86493;
+  margin-bottom: 10px;
+  &__buckle {
     font-size: 100px;
   }
 }
