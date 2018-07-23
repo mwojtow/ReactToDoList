@@ -4,8 +4,9 @@ export default class Note extends Component {
   render() {
     return (
       <div className="note" >
+        <div className="pin"></div>
         { this.props.text }
-        <button onClick={this.props.deleteMethod}>usun</button>
+        <button className="btn-delete" onClick={this.props.deleteMethod}>X</button>
       </div>
     )
   }

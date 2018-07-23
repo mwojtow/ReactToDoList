@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import Note from './components/Note';
 
 class App extends Component {
@@ -40,7 +40,7 @@ class App extends Component {
 
   addNote() {
     if (this.state.noteText.trim() === '') {
-      this.setState({ error: 'pusty ciąg - wpisz coś', noteText: ''});
+      this.setState({ error: 'empty input - write something!', noteText: ''});
       return;
     } else {
       let notesArr = this.state.notes;
@@ -81,9 +81,9 @@ class App extends Component {
         <header className="header">
           <span className="header__buckle">{`{`}</span> React todo list <span className="header__buckle">{`}`}</span>
         </header>
-        <button className="btn" onClick={this.addNote.bind(this)}>DODAJ</button>
+        <button className="btn" onClick={this.addNote.bind(this)}>ADD</button>
         <input type="text"
-          placeholder="dodaj zadanie"
+          placeholder="task"
           ref={((input) => { this.textInput = input })}
           className="textInput"
           value={this.state.noteText}
@@ -92,8 +92,10 @@ class App extends Component {
           onKeyPress={this.handleKeyPress.bind(this)}    
           name="noteText"
         />
-        {notes}
-        <p>{this.state.error}</p>
+        <div className="notes__container">
+          {notes}
+        </div>
+        <p className="error">{this.state.error}</p>
       </div>
     );
   }
