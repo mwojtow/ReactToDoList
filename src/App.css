@@ -26,7 +26,7 @@ body {
   cursor: pointer;
   transition: 0.3s;
   font-family: "Amatic SC", cursive;
-  font-size: 20px;
+  font-size: 24px;
 }
 .btn:hover {
   transform: scale(1.05);
@@ -52,7 +52,7 @@ body {
   padding-top: 5px;
   margin-left: 5px;
   font-family: "Amatic SC", cursive;
-  font-size: 20px;
+  font-size: 24px;
   width: 100%;
 }
 .textInput__container {
