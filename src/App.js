@@ -87,19 +87,24 @@ class App extends Component {
         <button className="btn" onClick={this.addNote.bind(this)}>
           ADD
         </button>
-        <input
-          type="text"
-          placeholder="task"
-          ref={input => {
-            this.textInput = input;
-          }}
-          className="textInput"
-          value={this.state.noteText}
-          // onChange={noteText => this.updateNoteText(noteText)}
-          onChange={this.onChange}
-          onKeyPress={this.handleKeyPress.bind(this)}
-          name="noteText"
-        />
+        <div className="textInput__container">
+          <input
+            type="text"
+            placeholder="write a task..."
+            ref={input => {
+              this.textInput = input;
+            }}
+            className="textInput"
+            value={this.state.noteText}
+            // onChange={noteText => this.updateNoteText(noteText)}
+            onChange={this.onChange}
+            onKeyPress={this.handleKeyPress.bind(this)}
+            name="noteText"
+          />
+          <span class="focus-border">
+            <i />
+          </span>
+        </div>
         <div className="notes__container">{notes}</div>
         <p className="error">{this.state.error}</p>
       </div>
