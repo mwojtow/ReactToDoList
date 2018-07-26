@@ -1,35 +1,40 @@
 body {
   font-family: "Amatic SC", cursive;
+  background-image: url("bg-pattern.png");
 }
 .container {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 60px;
+  font-size: 70px;
   font-weight: bold;
   color: #1d775f;
   margin-bottom: 10px;
+}
+@media (max-width: 440px) {
+  .header {
+    font-size: 60px;
+  }
 }
 .header__buckle {
   font-size: 100px;
 }
 .btn {
   background-color: #1d775f;
-  padding: 5px 10px;
-  border: 1px solid #000;
-  padding: 5px 10px;
+  padding: 8px 15px 10px;
+  border: none;
   color: #fff;
   cursor: pointer;
   transition: 0.3s;
   font-family: "Amatic SC", cursive;
-  font-size: 24px;
+  font-size: 20px;
 }
 .btn:hover {
-  transform: scale(1.05);
+  background-color: #12634d;
 }
 .btn-delete {
   background-color: transparent;
@@ -48,64 +53,16 @@ body {
 }
 .textInput {
   border: 1px solid #000;
-  padding: 10px 14px 6px;
   padding-top: 5px;
-  margin-left: 5px;
   font-family: "Amatic SC", cursive;
-  font-size: 24px;
-  width: 100%;
+  font-size: 20px;
+  outline: none;
+  width: 160px;
 }
 .textInput__container {
   position: relative;
-  width: 200px;
   display: inline-block;
-}
-.effect {
-  border: 1px solid #ccc;
-  padding: 7px 14px 9px;
-  transition: 0.4s;
-}
-.effect ~ .focus-border:before,
-.effect ~ .focus-border:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: #3399ff;
-  transition: 0.4s;
-}
-.effect ~ .focus-border:after {
-  top: auto;
-  bottom: 0;
-}
-.effect ~ .focus-border i:before,
-.effect ~ .focus-border i:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 2px;
-  height: 0;
-  background-color: #3399ff;
-  transition: 0.6s;
-}
-.effect ~ .focus-border i:after {
-  left: auto;
-  right: 0;
-}
-.effect:focus ~ .focus-border:before,
-.effect:focus ~ .focus-border:after {
-  left: 0;
-  width: 100%;
-  transition: 0.4s;
-}
-.effect:focus ~ .focus-border i:before,
-.effect:focus ~ .focus-border i:after {
-  top: 0;
-  height: 100%;
-  transition: 0.6s;
+  margin-left: 5px;
 }
 .notes__container {
   display: flex;
@@ -177,4 +134,51 @@ body {
   font-weight: bold;
   color: #e23537;
   padding: 20px 0;
+}
+.effect {
+  border: 1px solid #000;
+  padding: 7px 14px 9px;
+  transition: 0.4s;
+}
+.effect ~ .focus-border:before,
+.effect ~ .focus-border:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #1d775f;
+  transition: 0.4s;
+}
+.effect ~ .focus-border:after {
+  top: auto;
+  bottom: 0;
+}
+.effect ~ .focus-border i:before,
+.effect ~ .focus-border i:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background-color: #1d775f;
+  transition: 0.6s;
+}
+.effect ~ .focus-border i:after {
+  left: auto;
+  right: 0;
+}
+.effect:focus ~ .focus-border:before,
+.effect:focus ~ .focus-border:after {
+  left: 0;
+  width: 100%;
+  transition: 0.4s;
+}
+.effect:focus ~ .focus-border i:before,
+.effect:focus ~ .focus-border i:after {
+  top: 0;
+  height: 100%;
+  transition: 0.6s;
 }

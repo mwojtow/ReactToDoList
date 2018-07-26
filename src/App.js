@@ -79,7 +79,7 @@ class App extends Component {
     localStorage.setItem("Notes", JSON.stringify(this.state.notes));
 
     return (
-      <div className="container App">
+      <div className="container">
         <header className="header">
           <span className="header__buckle">{`{`}</span> React todo list{" "}
           <span className="header__buckle">{`}`}</span>
@@ -94,14 +94,14 @@ class App extends Component {
             ref={input => {
               this.textInput = input;
             }}
-            className="textInput"
+            className="textInput effect"
             value={this.state.noteText}
             // onChange={noteText => this.updateNoteText(noteText)}
             onChange={this.onChange}
             onKeyPress={this.handleKeyPress.bind(this)}
             name="noteText"
           />
-          <span class="focus-border">
+          <span className="focus-border">
             <i />
           </span>
         </div>
