@@ -1,0 +1,117 @@
+body {
+  font-family: 'Amatic SC', cursive;
+}
+
+.container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: #A86493;
+  margin-bottom: 10px;
+  &__buckle {
+    font-size: 100px;
+  }
+}
+
+.btn {
+  background-color: #fff;
+  border: 2px solid #A86493;
+  padding: 5px 10px;
+}
+
+.btn-delete {
+  background-color: transparent;
+  border: none;
+  color: #8f8f8f;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px;
+  &:hover{
+    font-weight: bold;
+  }
+}
+
+.textInput {
+  padding: 5px 10px;
+}
+
+.notes {
+  &__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.note {
+  background: #eae672;
+  box-shadow: 0 10px 10px 2px rgba(0,0,0,0.3);
+  color: #333;  
+  font-size: 30px;
+  font-weight: normal;
+  width: 240px;
+  height: fit-content;
+  margin-top: 30px;
+  padding: 20px 25px;
+  position: relative;
+  &:nth-child(even){
+    transform: rotate(-2deg);  
+  }
+  &:nth-child(odd){
+    transform: rotate(4deg);  
+  }
+}
+
+.pin {
+    background-color: #aaa;
+    display: block;
+    height: 32px;
+    width: 2px;
+    position: absolute;
+    left: 50%;
+    top: -16px;
+    z-index: 1;
+    &:after {
+      background-color: #A31;
+      background-image: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3));
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 
+                  inset 3px 3px 3px rgba(255, 255, 255, 0.2), 
+                  inset -3px -3px 3px rgba(0, 0, 0, 0.2), 
+                  23px 20px 3px rgba(0, 0, 0, 0.15);
+      content: '';
+      height: 12px;
+      left: -5px;
+      position: absolute;
+      top: -10px;
+      width: 12px;
+    }
+    &:before {
+      background-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 .25em rgba(0, 0, 0, 0.1);
+      content: '';
+      height: 24px;
+      width: 2px;
+      left: 12px;
+      position: absolute;
+      top: 12px;  
+      transform: rotate(57.5deg);
+    }
+}
+
+.error {
+  font-size: 30px;
+  font-weight: bold;
+  color: #e23537;
+}
